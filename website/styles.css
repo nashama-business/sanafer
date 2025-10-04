@@ -1,0 +1,94 @@
+* { box-sizing: border-box; }
+:root{
+	--bg-1: #071026;
+	--bg-2: #07162a;
+	--muted: #94a3b8;
+	--glass-border: rgba(255,255,255,0.04);
+	--text: #e6eef8;
+	--link: #9be7ff;
+}
+html,body{height:100%;}
+body{font-family: 'Cairo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background: radial-gradient(1200px 600px at 10% 10%, rgba(76,29,149,0.14), transparent 10%), linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%); color:var(--text); padding:28px}
+.container{max-width:1100px;margin:28px auto;padding:28px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 10px 40px rgba(2,6,23,0.6);backdrop-filter: blur(8px);border:1px solid rgba(255,255,255,0.03)}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hero-left{display:flex;align-items:center;gap:12px}
+.site-logo{width:86px;height:auto;border-radius:8px;box-shadow:0 6px 18px rgba(2,6,23,0.4)}
+.hero-left h1{margin:0;font-size:30px}
+.subtitle{margin:6px 0 0;color:var(--muted);font-weight:400}
+.hero-actions{display:flex;gap:10px}
+.btn{appearance:none;border:0;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#111827,#0b1220);color:var(--text);cursor:pointer;box-shadow:0 6px 18px rgba(2,6,23,0.6);font-weight:600}
+.btn.secondary{background:linear-gradient(90deg,#0f1724,#071029);border:1px solid rgba(255,255,255,0.04)}
+.list{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:18px}
+.card{padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid transparent;box-shadow:0 10px 30px rgba(2,6,23,0.45);transition:transform .28s, box-shadow .28s, background .28s;backdrop-filter: blur(10px);display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));mix-blend-mode:overlay}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 80px rgba(2,6,23,0.6)}
+.card h3{margin:0;font-size:16px}
+.card a{color:var(--link);text-decoration:none;font-weight:600;word-break:break-all}
+.small-links a{color:var(--link)}
+.muted{color:var(--muted)}
+.footer{text-align:center;margin-top:20px;color:var(--muted)}
+
+/* footer social icons */
+.footer .social{display:flex;justify-content:center;gap:12px;margin:8px 0 6px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));box-shadow:0 6px 18px rgba(2,6,23,0.35);transition:transform .18s, box-shadow .18s, background .18s}
+.icon-btn svg{width:20px;height:20px}
+.icon-btn:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(2,6,23,0.45)}
+
+/* footer action button */
+.footer-actions{margin-top:8px;display:flex;justify-content:center}
+.news-text{margin:0}
+.news-link{color:var(--link);text-decoration:underline;font-weight:600;cursor:pointer}
+.news-link:focus{outline:2px solid rgba(155,231,255,0.18);outline-offset:3px}
+
+/* make sure footer accepts pointer events in case of overlapping layers */
+.footer, .footer-actions {pointer-events:auto}
+
+/* Instagram gradient button */
+.icon-btn.instagram{background:linear-gradient(45deg,#feda75 0%,#fa7e1e 25%,#d62976 50%,#962fbf 75%,#4f5bd5 100%);}
+.icon-btn.instagram svg{color:#fff;fill:currentColor}
+
+/* link buttons */
+.link-btn{display:inline-block;padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,#09557a,#06b6d4);color:#07162a;text-decoration:none;font-weight:700;text-align:center}
+.card .link-btn{width:100%}
+.small-links .link-btn{display:inline-block;margin-inline-start:6px;margin-inline-end:6px;padding:8px 12px;border-radius:8px;font-weight:600}
+
+/* icon inside link button */
+.link-btn .icon{vertical-align:middle;margin-inline-start:8px;flex:0 0 auto}
+.link-btn span{vertical-align:middle}
+.link-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.card .link-btn{padding:12px 14px}
+.small-links .link-btn{padding:8px 10px}
+
+/* ripple support */
+.link-btn{position:relative;overflow:hidden}
+.link-btn span{position:relative;z-index:2}
+.link-btn .icon{z-index:2}
+
+/* entrance animation for cards */
+.list .card{opacity:0;transform:translateY(10px);animation:cardIn .55s cubic-bezier(.2,.9,.3,1) forwards}
+.list .card:nth-child(1){animation-delay:0.05s}
+.list .card:nth-child(2){animation-delay:0.1s}
+.list .card:nth-child(3){animation-delay:0.15s}
+.list .card:nth-child(4){animation-delay:0.2s}
+.list .card:nth-child(5){animation-delay:0.25s}
+.list .card:nth-child(6){animation-delay:0.3s}
+.list .card:nth-child(7){animation-delay:0.35s}
+.list .card:nth-child(8){animation-delay:0.4s}
+.list .card:nth-child(9){animation-delay:0.45s}
+.list .card:nth-child(10){animation-delay:0.5s}
+
+@keyframes cardIn{to{opacity:1;transform:none}}
+
+/* toast */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:linear-gradient(90deg,#0b1220,#132033);color:var(--text);padding:10px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s, transform .25s}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px);pointer-events:auto}
+
+/* responsive */
+@media (max-width:1100px){.list{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:680px){.hero{flex-direction:column;align-items:flex-start}.hero-actions{width:100%;justify-content:space-between}.list{grid-template-columns:1fr}}
+
+/* light theme support */
+:root[data-theme='light']{--bg-1:#f8fbff;--bg-2:#eef6ff;--text:#0b1220;--muted:#475569;--glass-border:rgba(12,18,28,0.04);--link:#2563eb}
+
+/* accessibility focus */
+.card a:focus{outline:2px solid rgba(155,231,255,0.18);outline-offset:3px}
